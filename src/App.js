@@ -1,17 +1,28 @@
-import React, { useState } from "react";
-import { Provider } from "react-redux";
-import store from "./redux/store";
+import React from "react";
+import { connect } from "react-redux";
 
 console.log(process.env.REACT_APP_ENV);
 
-function App() {
+const App = (props) => {
+  console.log(props);
+
   return (    
   <div>
-    <Provider store={store}>  
-      This is the front page
-    </Provider>
+      {props.authenticationToken == null ? (
+        "Login page"
+      ) : (
+        "Profile page"
+      )}
   </div>
   );
 }
 
-export default App;
+const actionsCreactor = {
+
+};
+
+const mapState = (state) => {
+  return { ...state.actionReducer};
+};
+
+export default connect(mapState, actionsCreactor)(App);
