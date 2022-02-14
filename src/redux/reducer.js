@@ -20,7 +20,7 @@ function actionReducer(state = initState, action) {
             console.log("Action: login");
             return userLogin(state, action.data);
 
-        case userActions.ADD_IMAGE:
+        case userActions.UPLOAD_IMAGE:
             console.log("Action: add image");
             return state;
 

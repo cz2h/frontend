@@ -1,13 +1,13 @@
 const userActions = {
     LOGIN: "LOGIN",
-    ADD_IMAGE: "ADD_IMAGE",
+    UPLOAD_IMAGE: "UPLOAD_IMAGE",
     DELETE_IMAGE: "DELETE_IMAGE",
     GET_IMAGE: "GET_IMAGE",
 };
   
 const actions = {
     login: login,
-    addCourse: addImage,
+    uploadImage: uploadImage,
     deleteImage: deleteImage,
     getImage: getImage
 };
@@ -23,7 +23,7 @@ function login(data){
 }
 
 // TO BE IMPLEMENTED
-function addImage(data) {
+function uploadImage(data) {
 }
 
 // TO BE IMPLEMENTED

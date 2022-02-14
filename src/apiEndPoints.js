@@ -8,9 +8,10 @@ const API = {
     TEST:  "/test",
     TESTLOGIN: "/test/testlogin",
     LOGIN:  "/user/login",
-    ADDIMAGE: "/image/uploadImage",
+    UPLOADIMAGE: "/api/upload",
     DELETEIMAGE: "/image/deleteImage",
-    GETIMAGE: "/image/getImage"
+    GETIMAGE: "/api/key/",
+    GETALLKEYS: "/api/list_keys"
 };
 
 for (var endpoint in API) {
