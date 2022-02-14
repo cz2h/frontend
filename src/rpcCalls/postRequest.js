@@ -16,11 +16,13 @@ async function postImage(key, file) {
     return res.data;
 }
 
-function getAllKeys() {
-
+async function postListAllKeys() {
+    let res = await axios.post(URL=API.GETALLKEYS);
+    debugLog(res.data);
+    return res.data.keys;
 }
 
 
 
-export default { postImage }
+export default { postImage, postListAllKeys }
 

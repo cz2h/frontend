@@ -3,6 +3,7 @@ import { Layout, Menu, Breadcrumb } from 'antd';
 import './Mainpage.css';
 
 import ImageUploader from '../imageUploader/ImageUploader';
+import ImageViewer from '../imageViewer/ImageViewer';
 
 const { Header, Content, Footer } = Layout;
 
@@ -17,7 +18,7 @@ const PAGES_TITLE = {
 
 const PAGES = {
   0: <ImageUploader/>,
-  1: "VIEW IMAGE PAGE",
+  1: <ImageViewer/>,
   2: "MEMCACHE STAT",
   3: "MEMCACHE SETTING"
 }
@@ -31,7 +32,7 @@ const Mainpage = (props) => {
         <Layout className="layout">
         <Header>
           <div className="logo" />
-          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
+          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['0']}>
             {new Array(NUM_PAGES).fill(null).map((_, index) => {
               const key = index;
               return <Menu.Item key={key} onClick={(action) => {
@@ -40,8 +41,8 @@ const Mainpage = (props) => {
             })}
           </Menu>
         </Header>
-        <Content style={{ padding: '0 50px' }}>
-          <div className="site-layout-content">
+        <Content style={{ padding: '0 50px'}}>
+          <div className="site-layout-content" style={{minHeight:500}}>
             {
               curPageComponent
             }

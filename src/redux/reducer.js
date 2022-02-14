@@ -9,8 +9,14 @@ const initState = user;
 function userLogin(state, data) {
     state.name = data.name;
     state.authenticationToken = data.authenticationToken;
-    state.images = data.images;
+    state.keys = data.images;
 
+    return state;
+}
+
+function getAllImageKeys(state, data) {
+    state.keys = data;
+    console.log(state);
     return state;
 }
 
@@ -31,6 +37,10 @@ function actionReducer(state = initState, action) {
         case userActions.GET_IMAGE:
             console.log("Action: get image");
             return state;
+        
+        case userActions.GET_ALL_KEYS:
+            console.log("Action: get all keys");
+            return Object.assign({}, getAllImageKeys(state, action.data));
 
         default:
             return Object.assign({}, state);

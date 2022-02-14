@@ -23,7 +23,9 @@ const ImageUploader = () => {
     };
       
     return (    
-        <div>
+        <div style={{textAlign: 'center'}}>
+            Please type in the key of your uploaded image.
+            <br/>
             <input type="text"
                 placeholder="Key of the image"
                 onChange={(e) => {
@@ -31,6 +33,7 @@ const ImageUploader = () => {
                     setImageKey(imageKey);
                 }}
             />
+            <br/>
             <input
                 type="file"
                 onChange={(e) => {
