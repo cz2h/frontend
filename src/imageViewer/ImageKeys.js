@@ -16,7 +16,11 @@ const ImageKeys = (props) => {
     return (
         <div>
             <Divider>Type in a key</Divider>
-                <Search placeholder="input key of image file" onSearch={onSearch} />        
+                <Search 
+                    placeholder="input key of image file"
+                    onSearch={onSearch}
+                    enterButton
+                />        
             <Divider style={{overflow:"auto"}}>or select one</Divider>
             <List
                 size="small"
@@ -28,7 +32,11 @@ const ImageKeys = (props) => {
                 <Card
                     hoverable
                     size="small"
-                    onClick={onSearch(item)}
+                    onClick={
+                        (e) => {
+                            onSearch(item)
+                        }
+                    }
                 >
                     {item}
                 </Card>}
