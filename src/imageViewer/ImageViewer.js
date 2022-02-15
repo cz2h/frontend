@@ -2,18 +2,19 @@ import { useState, useEffect } from 'react';
 import { connect } from "react-redux";
 
 
-import { Row, Col } from 'antd';
+import { Row, Col, Image, Card } from 'antd';
 import ImageKeys from './ImageKeys';
 
 import postRequest from '../rpcCalls/postRequest';
 
 import { actions } from '../redux/action';
 
+const style = { padding: '8px 0' };
 
 
 const ImageViewer = (props) => {
-    const [curImage, setCurImage] = useState('');
-    
+    let curImageURL = props.curImage;
+
     useEffect(() => {
         postRequest.
             postListAllKeys().
@@ -25,9 +26,24 @@ const ImageViewer = (props) => {
     });
 
     return (
-        <Row>
-            <Col span={8}><ImageKeys/></Col>
-            <Col span={16}>The image</Col>
+        <Row gutter={16}>
+            <Col span={4} className="gutter-row">
+                <div style={style}>
+                    <ImageKeys/>
+                </div>
+            </Col>
+            <Col span={18} className="gutter-row">
+            {curImageURL === '' ?
+                null
+                :
+                <div style={style} >
+                  <Image
+                        textAlign={'center'}
+                        src={"data:image/jpg;base64, " + curImageURL}
+                    /> 
+                </div>
+            }
+            </Col>
         </Row>
     )
 }
@@ -37,7 +53,7 @@ const actionsCreactor = {
 };
 
 const mapState = (state) => {
-    return {};
+    return {curImage:state.actionReducer.curImage};
 };
 
 

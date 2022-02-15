@@ -8,8 +8,6 @@ import './App.css';
 console.log(process.env.REACT_APP_ENV);
 
 const App = (props) => {
-  console.log(props);
-
   return (    
     <Mainpage/>
   );

@@ -16,7 +16,11 @@ function userLogin(state, data) {
 
 function getAllImageKeys(state, data) {
     state.keys = data;
-    console.log(state);
+    return state;
+}
+
+function getImageOfBase64(state, data) {
+    state.curImage = data;
     return state;
 }
 
@@ -36,7 +40,7 @@ function actionReducer(state = initState, action) {
 
         case userActions.GET_IMAGE:
             console.log("Action: get image");
-            return state;
+            return Object.assign({}, getImageOfBase64(state, action.data));
         
         case userActions.GET_ALL_KEYS:
             console.log("Action: get all keys");

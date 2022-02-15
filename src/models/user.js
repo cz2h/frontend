@@ -2,7 +2,8 @@ const user = {
     name: "",
     authenticationToken: null,
     keys:[],
-    images:[]
+    images:[],
+    curImage: "",
 };
 
 export default user;

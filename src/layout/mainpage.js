@@ -42,7 +42,7 @@ const Mainpage = (props) => {
           </Menu>
         </Header>
         <Content style={{ padding: '0 50px'}}>
-          <div className="site-layout-content" style={{minHeight:500}}>
+          <div className="site-layout-content" style={{minHeight:700}}>
             {
               curPageComponent
             }

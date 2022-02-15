@@ -23,6 +23,13 @@ async function postListAllKeys() {
 }
 
 
+async function postGetImage(key) {    
+    let res = await axios.post(URL=API.GETIMAGE + '?key=' + key);
 
-export default { postImage, postListAllKeys }
+    debugLog(res.data);
+    return res.data.content;
+}
+
+
+export default { postImage, postListAllKeys, postGetImage }
 

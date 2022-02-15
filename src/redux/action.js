@@ -41,7 +41,9 @@ function deleteImage(){
 
 // TO BE IMPLEMENTED
 function getImage(data) {
-
+    return (dispatch) => {
+        dispatch(success(userActions.GET_IMAGE, data));
+    };   
 }
 
 export { actions, userActions};

@@ -1,16 +1,23 @@
-import { List, Divider, Card } from 'antd';
+import { List, Divider, Card, Input } from 'antd';
 import { connect } from "react-redux";
 import { actions } from '../redux/action';
+import postRequest from '../rpcCalls/postRequest';
+
+const { Search } = Input; 
 
 const ImageKeys = (props) => {
 
+    const onSearch = value => {
+        postRequest.postGetImage(value).then((content) => {
+            props.getImage(content);
+        });
+    }
 
-    console.log(props);
     return (
         <div>
             <Divider>Type in a key</Divider>
-            This is image searcher
-            <Divider>or select from below</Divider>
+                <Search placeholder="input key of image file" onSearch={onSearch} />        
+            <Divider style={{overflow:"auto"}}>or select one</Divider>
             <List
                 size="small"
                 header={null}
@@ -21,6 +28,7 @@ const ImageKeys = (props) => {
                 <Card
                     hoverable
                     size="small"
+                    onClick={onSearch(item)}
                 >
                     {item}
                 </Card>}
@@ -32,10 +40,10 @@ const ImageKeys = (props) => {
 
 const actionsCreactor = {
     getAllKeys: actions.getAllImageKeys,
+    getImage: actions.getImage
 };
 
 const mapState = (state) => {
-    console.log(state.actionReducer.keys);
     return { keys: state.actionReducer.keys};
 };
 
