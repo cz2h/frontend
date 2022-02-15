@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import {  useEffect } from 'react';
 import { connect } from "react-redux";
 
 
-import { Row, Col, Image, Card } from 'antd';
+import { Row, Col, Image,  Alert, Button } from 'antd';
 import ImageKeys from './ImageKeys';
 
 import postRequest from '../rpcCalls/postRequest';
@@ -14,7 +14,7 @@ const style = { padding: '8px 0' };
 
 const ImageViewer = (props) => {
     let curImageURL = props.curImage;
-
+    console.log(curImageURL);
     useEffect(() => {
         postRequest.
             postListAllKeys().
@@ -32,16 +32,21 @@ const ImageViewer = (props) => {
                     <ImageKeys/>
                 </div>
             </Col>
-            <Col span={18} className="gutter-row">
-            {curImageURL === '' ?
-                null
+            <Col span={18} className="gutter-row" type="flex" align="middle">
+            {(curImageURL == undefined || curImageURL === '') ?
+                <Alert 
+                    message="No such file with such key"
+                    banner
+                    closable
+                    showIcon                 
+                />
+
                 :
-                <div style={style} >
                   <Image
                         textAlign={'center'}
                         src={"data:image/jpg;base64, " + curImageURL}
+                        style={{width: '100%', justifyContent: 'center'}}
                     /> 
-                </div>
             }
             </Col>
         </Row>
