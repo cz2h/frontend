@@ -4,6 +4,7 @@ const user = {
     keys:[],
     images:[],
     curImage: "",
+    cacheStats: [],
 };
 
 export default user;

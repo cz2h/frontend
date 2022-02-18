@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Layout, Menu, Breadcrumb } from 'antd';
 import './Mainpage.css';
 
+import MemcacheStats from "../memcachePages/MemcacheStats";
+
 import ImageUploader from '../imageUploader/ImageUploader';
 import ImageViewer from '../imageViewer/ImageViewer';
 
@@ -19,7 +21,7 @@ const PAGES_TITLE = {
 const PAGES = {
   0: <ImageUploader/>,
   1: <ImageViewer/>,
-  2: "MEMCACHE STAT",
+  2: <MemcacheStats/>,
   3: "MEMCACHE SETTING"
 }
 

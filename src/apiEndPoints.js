@@ -11,7 +11,9 @@ const API = {
     UPLOADIMAGE: "/api/upload",
     DELETEIMAGE: "/image/deleteImage",
     GETIMAGE: "/api/key/",
-    GETALLKEYS: "/api/list_keys"
+    GETALLKEYS: "/api/list_keys",
+    GETCACHESTATS: "/api/memcache/stat",
+    POSTCACHESETTING: "/api/memcache/set",
 };
 
 for (var endpoint in API) {

@@ -14,7 +14,6 @@ const style = { padding: '8px 0' };
 
 const ImageViewer = (props) => {
     let curImageURL = props.curImage;
-    console.log(curImageURL);
     useEffect(() => {
         postRequest.
             postListAllKeys().

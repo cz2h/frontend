@@ -3,7 +3,8 @@ const userActions = {
     UPLOAD_IMAGE: "UPLOAD_IMAGE",
     DELETE_IMAGE: "DELETE_IMAGE",
     GET_IMAGE: "GET_IMAGE",
-    GET_ALL_KEYS: "GET_ALL_KEYS"
+    GET_ALL_KEYS: "GET_ALL_KEYS",
+    GET_CACHE_STATS: "GET_CACHE_STATS",
 };
   
 const actions = {
@@ -11,7 +12,9 @@ const actions = {
     uploadImage: uploadImage,
     deleteImage: deleteImage,
     getImage: getImage,
-    getAllImageKeys: getAllImageKeys
+    getAllImageKeys: getAllImageKeys,
+
+    getCacheStat: getCacheStat
 };
 
 function success(type, data) {
@@ -30,6 +33,12 @@ function getAllImageKeys(data) {
     };    
 }
 
+function getCacheStat(data) {
+    return (dispatch) => {
+        dispatch(success(userActions.GET_CACHE_STATS, data));
+    };      
+}
+
 // TO BE IMPLEMENTED
 function uploadImage(data) {
 }
@@ -39,7 +48,6 @@ function deleteImage(){
 
 }
 
-// TO BE IMPLEMENTED
 function getImage(data) {
     return (dispatch) => {
         dispatch(success(userActions.GET_IMAGE, data));

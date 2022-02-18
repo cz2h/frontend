@@ -24,6 +24,11 @@ function getImageOfBase64(state, data) {
     return state;
 }
 
+function getCacheStat(stat, data) {
+    stat.cacheStats = data;
+    return stat;
+}
+
 function actionReducer(state = initState, action) {
     switch (action.type) {
         case userActions.LOGIN:
@@ -46,6 +51,10 @@ function actionReducer(state = initState, action) {
             console.log("Action: get all keys");
             return Object.assign({}, getAllImageKeys(state, action.data));
 
+        case userActions.GET_CACHE_STATS:
+            console.log("Action: get cache stats");
+            return Object.assign({}, getCacheStat(state, action.data));
+           
         default:
             return Object.assign({}, state);
     }
