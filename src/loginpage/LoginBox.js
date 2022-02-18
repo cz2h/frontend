@@ -10,7 +10,6 @@ import { Form, Input, Button, Checkbox } from 'antd';
 
 const LoginBox = (props) => {
   const onFinish = (values) => {
-        console.log(API);
         axios
             .post(API.TESTLOGIN, {
                 username: values.username,

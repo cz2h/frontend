@@ -3,6 +3,7 @@ import { Layout, Menu, Breadcrumb } from 'antd';
 import './Mainpage.css';
 
 import MemcacheStats from "../memcachePages/MemcacheStats";
+import MemcacheSetting from '../memcachePages/MemcacheSetting';
 
 import ImageUploader from '../imageUploader/ImageUploader';
 import ImageViewer from '../imageViewer/ImageViewer';
@@ -22,7 +23,7 @@ const PAGES = {
   0: <ImageUploader/>,
   1: <ImageViewer/>,
   2: <MemcacheStats/>,
-  3: "MEMCACHE SETTING"
+  3: <MemcacheSetting/>,
 }
 
 const Mainpage = (props) => {

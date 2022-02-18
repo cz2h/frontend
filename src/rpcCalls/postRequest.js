@@ -30,6 +30,16 @@ async function postGetImage(key) {
     return res.data.content;
 }
 
+async function postCacheSetting(capacity, policy) {    
+    let formdata = new FormData();
+    formdata.append('capacity', capacity);
+    formdata.append('rep_policy', policy)
+    let res = await axios.post(URL=API.POSTCACHESETTING, formdata);
 
-export default { postImage, postListAllKeys, postGetImage }
+    debugLog(res.data);
+    return res.data.content;
+}
+
+
+export default { postImage, postListAllKeys, postGetImage, postCacheSetting }
 
