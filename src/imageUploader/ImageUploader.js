@@ -2,12 +2,23 @@ import { useState } from "react";
 // import { connect } from "react-redux";
 import postRequest from "../rpcCalls/postRequest";
 
+import { Upload, Button } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
+
+
 const ImageUploader = () => {
     const [errorMessage, setMessage] = useState("");
     const [imageKey, setImageKey] = useState("");
 
+    let state = {
+        fileList: [],
+        uploading: false,
+    }
+
+    const { uploading, fileList } = state;
+
     const myProps = {
-        onChange(info) {
+        handleUpload(info) {
             let file = info.file;
             if (file.status !== 'uploading') {
                 if (! file.type.includes('image')) {
@@ -20,6 +31,23 @@ const ImageUploader = () => {
                 }
             }
         },
+        onRemove: file => {
+            this.setState(state => {
+              const index = state.fileList.indexOf(file);
+              const newFileList = state.fileList.slice();
+              newFileList.splice(index, 1);
+              return {
+                fileList: newFileList,
+              };
+            });
+          },
+        beforeUpload: file => {
+            this.setState(state => ({
+              fileList: [...state.fileList, file],
+            }));
+            return false;
+          },
+        fileList,
     };
       
     return (    
@@ -34,14 +62,19 @@ const ImageUploader = () => {
                 }}
             />
             <br/>
-            <input
-                type="file"
-                onChange={(e) => {
-                        [...e.target.files].map((file) => {
-                        myProps.onChange({ file: file });
-                    });
-                }}
-            />
+            <Upload {...myProps}>
+                <Button icon={<UploadOutlined />}>Select File</Button>
+            </Upload>
+            <Button
+                type="primary"
+                onClick={myProps.handleUpload}
+                disabled={fileList.length === 0}
+                loading={uploading}
+                style={{ marginTop: 16 }}
+            >
+                {uploading ? 'Uploading' : 'Start Upload'}
+            </Button>
+
             {errorMessage}
         </div>
     );
