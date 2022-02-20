@@ -1,7 +1,7 @@
-let SERVER =  "http://127.0.0.1:114";
+let SERVER =  "http://127.0.0.1:5003";
 
 if (process.env.REACT_APP_ENV === "local") {
-    SERVER = "http://127.0.0.1:114"
+    SERVER = "http://127.0.0.1:5003"
 };
 
 const API = {
