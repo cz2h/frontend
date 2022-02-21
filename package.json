@@ -17,7 +17,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "PORT=5002  REACT_APP_HOST=`echo $publicip` react-scripts start",
+    "start": "PORT=5002  REACT_APP_HOST=`wget -qO- http://instance-data/latest/meta-data/public-ipv4` REACT_APP_SHIT=`echo 114` react-scripts start",
     "devmac": "REACT_APP_ENV=local npm start",
     "devwindows": "set \"REACT_APP_ENV=local\" && npm start",
     "build": "react-scripts build",

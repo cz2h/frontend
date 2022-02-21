@@ -4,7 +4,7 @@ if (process.env.REACT_APP_ENV === "local" || SERVER === '') {
     SERVER = 'http://localhost:5000';
 };
 
-console.log(SERVER);
+console.log("Current host is : ", SERVER);
 
 const API = {
     TEST:  "/test",
