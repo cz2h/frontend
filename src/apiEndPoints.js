@@ -4,6 +4,8 @@ if (process.env.REACT_APP_ENV === "local") {
     SERVER = process.env.REACT_APP_HOST;
 };
 
+console.log(SERVER);
+
 const API = {
     TEST:  "/test",
     TESTLOGIN: "/test/testlogin",
