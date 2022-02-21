@@ -1,7 +1,7 @@
 let SERVER =  process.env.REACT_APP_HOST;
 
-if (process.env.REACT_APP_ENV === "local") {
-    SERVER = process.env.REACT_APP_HOST;
+if (process.env.REACT_APP_ENV === "local" || SERVER === '') {
+    SERVER = 'http://localhost:5000';
 };
 
 console.log(SERVER);
@@ -12,7 +12,7 @@ const API = {
     LOGIN:  "/user/login",
     UPLOADIMAGE: "/api/upload",
     DELETEIMAGE: "/image/deleteImage",
-    GETIMAGE: "/api/key/",
+    GETIMAGE: "/api/key",
     GETALLKEYS: "/api/list_keys",
     GETCACHESTATS: "/api/memcache/stat",
     POSTCACHESETTING: "/api/memcache/set",

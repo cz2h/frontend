@@ -24,7 +24,7 @@ async function postListAllKeys() {
 
 
 async function postGetImage(key) {    
-    let res = await axios.post(URL=API.GETIMAGE + '?key=' + key);
+    let res = await axios.post(URL=API.GETIMAGE + '/' + key);
 
     debugLog(res.data);
     return res.data.content;
