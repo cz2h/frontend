@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { Layout, Menu, Breadcrumb } from 'antd';
 import './Mainpage.css';
 
-import MemcacheStats from "../memcachePages/MemcacheStats";
-import MemcacheSetting from '../memcachePages/MemcacheSetting';
+// import MemcacheStats from "../memcachePages/MemcacheStats";
+// import MemcacheSetting from '../memcachePages/MemcacheSetting';
 
 import ImageUploader from '../imageUploader/ImageUploader';
 import ImageViewer from '../imageViewer/ImageViewer';
@@ -15,15 +15,15 @@ const NUM_PAGES = 4;
 const PAGES_TITLE = {
   0: "Upload Image",
   1: "View Image",
-  2: "Memcache performance",
-  3: "Memcache setting"
+  // 2: "Memcache performance",
+  // 3: "Memcache setting"
 }
 
 const PAGES = {
   0: <ImageUploader/>,
   1: <ImageViewer/>,
-  2: <MemcacheStats/>,
-  3: <MemcacheSetting/>,
+  // 2: <MemcacheStats/>,
+  // 3: <MemcacheSetting/>,
 }
 
 const Mainpage = (props) => {
